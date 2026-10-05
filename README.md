@@ -8,7 +8,7 @@
 <p align="center">
   <a href="mailto:vatsalpatni73@gmail.com"><img src="https://img.shields.io/badge/Gmail-vatsalpatni73-D14836?style=flat&logo=gmail&logoColor=white"/></a>
   <a href="https://www.linkedin.com/in/vatsal-patni-5676482a4"><img src="https://img.shields.io/badge/LinkedIn-Vatsal%20Patni-0A66C2?style=flat&logo=linkedin&logoColor=white"/></a>
-  <a href="https://codeforces.com/profile/LASTAV"><img src="https://img.shields.io/badge/Codeforces-Expert%20%7C%201623-1F8ACB?style=flat&logo=codeforces&logoColor=white"/></a>
+  <a href="https://codeforces.com/profile/LASTAV"><img src="https://img.shields.io/badge/Codeforces-Expert%20%7C%201625-1F8ACB?style=flat&logo=codeforces&logoColor=white"/></a>
   <a href="https://leetcode.com/vatsalpatni"><img src="https://img.shields.io/badge/LeetCode-Knight%20%7C%201911-FFA116?style=flat&logo=leetcode&logoColor=white"/></a>
 </p>
 
@@ -18,7 +18,7 @@
 
 I like working deep in the stack: Kubernetes internals, distributed resource management, and concurrent C++. I'm an LFX mentee on **Koordinator** (CNCF Sandbox), where I built two production descheduler plugins in Go, and I also compete in contests on the side.
 
-- 🌐 Koordinator contributor, 7 PRs across resource management, koordlet, and admission webhooks
+- 🌐 Koordinator contributor, 11+ merged PRs across resource management, koordlet, and admission webhooks
 - 🔧 Merged fix in **QuantLib** for a floating-point failure that only appeared under `g++ 12 -O3`
 - ⚔️ **Meta Hacker Cup 2025**: global rank 1570 in Round 2
 - 🧮 700+ problems solved, 90+ rated contests
