@@ -1,13 +1,13 @@
 <h1 align="center">Vatsal Patni</h1>
 
 <p align="center">
-  Systems programmer · Kubernetes & CNCF contributor · Competitive coder<br/>
+  Software Engineer · Kubernetes & CNCF Contributor · Competitive Programmer<br/>
   <sub>B.Tech Civil Engineering, IIT (BHU) Varanasi · Class of 2027</sub>
 </p>
 
 <p align="center">
   <a href="mailto:vatsalpatni73@gmail.com"><img src="https://img.shields.io/badge/Gmail-vatsalpatni73-D14836?style=flat&logo=gmail&logoColor=white"/></a>
-  <a href="https://www.linkedin.com/in/vatsal-patni"><img src="https://img.shields.io/badge/LinkedIn-Vatsal%20Patni-0A66C2?style=flat&logo=linkedin&logoColor=white"/></a>
+  <a href="https://www.linkedin.com/in/vatsal-patni-5676482a4"><img src="https://img.shields.io/badge/LinkedIn-Vatsal%20Patni-0A66C2?style=flat&logo=linkedin&logoColor=white"/></a>
   <a href="https://codeforces.com/profile/LASTAV"><img src="https://img.shields.io/badge/Codeforces-Expert%20%7C%201623-1F8ACB?style=flat&logo=codeforces&logoColor=white"/></a>
   <a href="https://leetcode.com/vatsalpatni"><img src="https://img.shields.io/badge/LeetCode-Knight%20%7C%201911-FFA116?style=flat&logo=leetcode&logoColor=white"/></a>
 </p>
