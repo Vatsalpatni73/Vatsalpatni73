@@ -15,9 +15,9 @@
 
 ## 👨‍💻 About Me
 
-I like working deep in the stack: **Kubernetes scheduling and descheduling**, **cluster resource management**, and **concurrent C++**. I completed the **LFX Mentorship (2026 Term 2)** with [Koordinator](https://github.com/koordinator-sh/koordinator), a CNCF project for QoS-based Kubernetes scheduling, where I designed and implemented two descheduler plugins in Go.
+I like working deep in the stack: **Kubernetes scheduling and descheduling**, **cluster resource management**, and **concurrent C++**. I completed the **LFX Mentorship (2026 Term 2)** with [Koordinator](https://github.com/koordinator-sh/koordinator), a CNCF project for QoS-based Kubernetes scheduling, where I designed and shipped two descheduler plugins in Go.
 
-- 🌐 **Koordinator**: LFX mentee and contributor across the descheduler, koordlet, and admission webhook
+- 🌐 **Koordinator**: 11 merged PRs in `koord-descheduler` (two plugins, config APIs, optimizations, docs), plus 13 open PRs across koordlet, webhook, scheduler and e2e tests
 - 🔧 **QuantLib**: Fixed a floating-point test failure that only appeared under `g++ 12 -O3` (shipped in QuantLib 1.42)
 - ⚔️ **Meta Hacker Cup 2025**: Global Rank 1570 in Round 2
 - 🧮 **Competitive Programming**: 700+ problems solved, 90+ rated contests
@@ -35,31 +35,50 @@ I like working deep in the stack: **Kubernetes scheduling and descheduling**, **
 ## 🚀 Featured: LFX Mentorship at [Koordinator](https://github.com/koordinator-sh/koordinator)
 > **Jun 2026 - Aug 2026** · Project: *Fragmentation-Aware Rescheduling and Scale-Down Binpack* · `Go` `client-go` `CRD APIs` `Descheduler framework`
 
-Designed and implemented two descheduler plugins, with **52 unit tests** (up to a 2.4:1 test-to-code ratio), versioned `v1alpha2` APIs, auto-defaulting, and field-level validation. Completed with a positive mentor evaluation.
+Designed and implemented two descheduler plugins, all merged upstream, with **52 unit tests** (up to a 2.4:1 test-to-code ratio), versioned `v1alpha2` APIs, auto-defaulting, field-level validation, and user-facing docs. Completed with a positive mentor evaluation.
 
 | 🔌 Plugin | 🎯 What it does | 📈 Result (simulated) |
 |---|---|---|
 | **ScaleDownBinpack** | Ranks scale-down victims with **RRBS** (Residual Resource Binpack Score, `O(N log N + k)`) so workloads drain onto the fewest nodes. Writes the rank to the native `pod-deletion-cost` annotation, or evicts directly. | Up to **3x more reclaimable idle nodes** than default scale-down (about $219/month projected on a 10-node cluster). |
-| **FragmentationAware** | Ranks nodes by the standard deviation of per-resource utilization and evicts the pod with the highest gain, using `O(n)` incremental scoring. Uses `ReservationFirst` eviction so replacement capacity is secured before a pod moves. | About **93%** less resource imbalance and about **67pp** more schedulable capacity freed per node (18-node CPU/memory/GPU cluster). |
+| **FragmentationAware** | Ranks nodes by the standard deviation of per-resource utilization and evicts the pod with the highest gain, using incremental scoring (optimized to `O(P*R)`). Uses `ReservationFirst` eviction so replacement capacity is secured before a pod moves. | About **93%** less resource imbalance and about **67pp** more schedulable capacity freed per node (18-node CPU/memory/GPU cluster). |
 
-**Pull requests:** [#3092](https://github.com/koordinator-sh/koordinator/pull/3092) ScaleDownBinpack ranker and tests · [#3117](https://github.com/koordinator-sh/koordinator/pull/3117) ScaleDownBinpack plugin and registration · [#3160](https://github.com/koordinator-sh/koordinator/pull/3160) fix pod listing panic · [#3093](https://github.com/koordinator-sh/koordinator/pull/3093) FragmentationAware balance plugin · [#3159](https://github.com/koordinator-sh/koordinator/pull/3159) remove dead code in FragmentationAware
+### ✅ Merged pull requests (11)
+
+| Plugin | PR | Change |
+|---|---|---|
+| FragmentationAware | [#3068](https://github.com/koordinator-sh/koordinator/pull/3068) | Scoring files |
+| FragmentationAware | [#3071](https://github.com/koordinator-sh/koordinator/pull/3071) | Config API types and validation |
+| FragmentationAware | [#3093](https://github.com/koordinator-sh/koordinator/pull/3093) | Balance plugin |
+| FragmentationAware | [#3159](https://github.com/koordinator-sh/koordinator/pull/3159) | Remove dead code |
+| FragmentationAware | [#3168](https://github.com/koordinator-sh/koordinator/pull/3168) | Optimize scoring calculation to `O(P*R)` |
+| FragmentationAware | [#3163](https://github.com/koordinator-sh/koordinator/pull/3163) | User-facing documentation |
+| ScaleDownBinpack | [#3099](https://github.com/koordinator-sh/koordinator/pull/3099) | Args, defaults and validation |
+| ScaleDownBinpack | [#3092](https://github.com/koordinator-sh/koordinator/pull/3092) | Ranker and unit tests |
+| ScaleDownBinpack | [#3117](https://github.com/koordinator-sh/koordinator/pull/3117) | Plugin and registration |
+| ScaleDownBinpack | [#3160](https://github.com/koordinator-sh/koordinator/pull/3160) | Fix pod listing panic |
+| ScaleDownBinpack | [#3140](https://github.com/koordinator-sh/koordinator/pull/3140) | User-facing docs and example configs |
 
 ## 🌍 Open Source
 
-### 🌩️ [Koordinator](https://github.com/koordinator-sh/koordinator)
+### 🌩️ [Koordinator](https://github.com/koordinator-sh/koordinator): open PRs
 
 All of my pull requests: [`is:pr author:Vatsalpatni73`](https://github.com/koordinator-sh/koordinator/pulls?q=is%3Apr+author%3AVatsalpatni73)
 
-| PR | Area | Change |
-|---|---|---|
-| [#2918](https://github.com/koordinator-sh/koordinator/pull/2918) | util | BE (Batch) resource helpers now account for init containers and `pod.Spec.Overhead` |
-| [#2926](https://github.com/koordinator-sh/koordinator/pull/2926) | koordlet | `--default-qos-class-for-guaranteed-pods` flag with parse-time validation |
-| [#2958](https://github.com/koordinator-sh/koordinator/pull/2958) | webhook | Shared `runMutatingPlugins` flow so Pod UPDATE requests can be mutated behind an opt-in label |
-| [#2980](https://github.com/koordinator-sh/koordinator/pull/2980) | koordlet | Priority-aware, cold-start-ramped sample weighting for histograms in `predict_server` |
-| [#2944](https://github.com/koordinator-sh/koordinator/pull/2944) | webhook | Structured error codes in webhook metrics instead of a binary rejected status |
-| [#2953](https://github.com/koordinator-sh/koordinator/pull/2953) | scheduler | Runtime GPU/NPU resource registration in the `gpudeviceresource` plugin |
-| [#3045](https://github.com/koordinator-sh/koordinator/pull/3045) | koordlet | Configurable CPU and memory percentiles for the peak predictor |
-| [#3006](https://github.com/koordinator-sh/koordinator/pull/3006), [#3014](https://github.com/koordinator-sh/koordinator/pull/3014), [#3016](https://github.com/koordinator-sh/koordinator/pull/3016) | e2e | Bootstrapped the koordlet e2e suite with BECPUSuppress/BECPUEvict, BlkIOQoS and resctrl tests |
+| PR | Area | Change | Status |
+|---|---|---|:---:|
+| [#2926](https://github.com/koordinator-sh/koordinator/pull/2926) | koordlet | `--default-qos-class-for-guaranteed-pods` flag with parse-time validation | 🟡 Open |
+| [#2944](https://github.com/koordinator-sh/koordinator/pull/2944) | webhook | Detailed error codes in webhook metrics instead of a binary rejected status | 🟡 Open |
+| [#2953](https://github.com/koordinator-sh/koordinator/pull/2953) | scheduler | Runtime GPU/NPU resource registration in the `gpudeviceresource` plugin | 🟡 Open |
+| [#2958](https://github.com/koordinator-sh/koordinator/pull/2958) | webhook | Shared `runMutatingPlugins` flow so Pod UPDATE requests can be mutated behind an opt-in label | 🟡 Open |
+| [#2980](https://github.com/koordinator-sh/koordinator/pull/2980) | koordlet | Priority-aware, cold-start-ramped sample weighting for histograms in `predict_server` | 🟡 Open |
+| [#3045](https://github.com/koordinator-sh/koordinator/pull/3045) | koordlet | Configurable CPU and memory percentiles for the peak predictor | 🟡 Open |
+| [#3006](https://github.com/koordinator-sh/koordinator/pull/3006) | e2e | Bootstrapped the koordlet e2e suite with BECPUSuppress and BECPUEvict tests | 🟡 Open |
+| [#3012](https://github.com/koordinator-sh/koordinator/pull/3012) | e2e | CPU QoS e2e test (`cpu.shares` / cpuset isolation) | 🟡 Open |
+| [#3014](https://github.com/koordinator-sh/koordinator/pull/3014) | e2e | BlkIOQoS e2e test | 🟡 Open |
+| [#3016](https://github.com/koordinator-sh/koordinator/pull/3016) | e2e | resctrl (L3 cache / MBA) e2e tests | 🟡 Open |
+| [#3041](https://github.com/koordinator-sh/koordinator/pull/3041) | tests | Unit tests for RDMA utilities in the system package | ⏸️ On hold |
+| [#3043](https://github.com/koordinator-sh/koordinator/pull/3043) | tests | Unit tests for `pkg/util/selector.go` | 🟡 Open |
+| [#3056](https://github.com/koordinator-sh/koordinator/pull/3056) | tests | Unit tests for `pkg/util/parallelize.go` | 🟡 Open |
 
 ### 📊 [QuantLib](https://github.com/lballabio/QuantLib)
 - **[PR #2435](https://github.com/lballabio/QuantLib/pull/2435)** ✅ *(merged, released in 1.42)*: Diagnosed a `testCachedHullWhite` failure that only showed up under `g++ 12.x -O3` and adjusted the tolerance in `shortratemodels.cpp` (`1.2e-5` to `1.3e-5`) to absorb legitimate floating-point variance without weakening the test.
