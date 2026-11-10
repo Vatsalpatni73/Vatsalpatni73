@@ -97,6 +97,11 @@ Lossless Huffman compressor with worker threads synchronized by mutexes and cond
 
 Real-time Dijkstra and Bidirectional A* visualizer. Flattened 2D grids into contiguous 1D arrays for better **L1/L2 cache locality**. A Manhattan-distance heuristic focuses the search toward the goal, and searching from both ends reduces the explored space from `O(b^d)` to roughly `O(b^(d/2))`.
 
+### ⚡ [SpeedxNum Extension](https://github.com/Vatsalpatni73/SpeedxNum-Extension)
+> `JavaScript` `Browser Extension` `Content Script`
+
+Browser extension for keyboard-driven video speed control: pressing `Alt + <num>` sets playback speed to `1 + num * 0.25`, so a single shortcut jumps anywhere from 1.0x to 3.25x without touching the player UI.
+
 ---
 
 ## 🏆 Leadership & Recognition
